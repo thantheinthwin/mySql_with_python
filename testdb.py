@@ -39,14 +39,29 @@ mycursor = mydb.cursor()
 # commiting the current transaction
 # mydb.commit()
 
-mycursor.execute("SELECT age FROM students")
+# mycursor.execute("SELECT age FROM students")
 
 # get all the data from the table
 # myresult = mycursor.fetchall()
 
 # get only one entry
-myresult = mycursor.fetchone()
+# myresult = mycursor.fetchone()
+#
+# for row in myresult:
+#     print(row)
 
-for row in myresult:
-    print(row)
+# selecting a variable with name starting with Mi
+# sql = "SELECT * FROM students WHERE name LIKE 'Mi%'"
 
+# selecting a variable with name which has ac in it
+# sql = "SELECT * FROM students WHERE name LIKE '%ac%'"
+
+# to prevent sql injection
+sql = "SELECT * FROM students WHERE name = %s"
+
+mycursor.execute(sql, ("Mike", ))
+
+myresult = mycursor.fetchall()
+
+for result in myresult:
+    print(result)
