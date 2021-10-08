@@ -17,7 +17,36 @@ mycursor = mydb.cursor()
 # Creating a table in database
 # mycursor.execute("CREATE TABLE Students (name VARCHAR(255), age INTEGER(10))")
 
-mycursor.execute("SHOW TABLES")
+# mycursor.execute("SHOW TABLES")
 
-for tb in mycursor:
-    print(tb)
+# Displaying the database or table in terminal
+# for tb in mycursor:
+#     print(tb)
+
+# sqlFormula = "INSERT INTO Students (name, age) VALUES (%s, %s)"
+#
+# student = [("Rachel", 22),
+#             ("Michael", 20),
+#             ("Navi", 23),
+#             ("Noah", 21),]
+# # passing many parameters
+# mycursor.executemany(sqlFormula, student)
+
+# student1 = ("Steve", 21)
+# passing only one parameter
+# mycursor.execute(sqlFormula, student1)
+
+# commiting the current transaction
+# mydb.commit()
+
+mycursor.execute("SELECT age FROM students")
+
+# get all the data from the table
+# myresult = mycursor.fetchall()
+
+# get only one entry
+myresult = mycursor.fetchone()
+
+for row in myresult:
+    print(row)
+
