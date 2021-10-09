@@ -57,9 +57,27 @@ mycursor = mydb.cursor()
 # sql = "SELECT * FROM students WHERE name LIKE '%ac%'"
 
 # to prevent sql injection
-sql = "SELECT * FROM students WHERE name = %s"
+# sql = "SELECT * FROM students WHERE name = %s"
 
-mycursor.execute(sql, ("Mike", ))
+# mycursor.execute(sql, ("Mike", ))
+#
+# myresult = mycursor.fetchall()
+#
+# for result in myresult:
+#     print(result)
+
+# Changing the age of the entry named Rachel
+# sql = "UPDATE students SET age = 13 WHERE name = 'Rachel'"
+# mycursor.execute(sql)
+# mydb.commit()
+
+# Limiting the quaries up to first 5 elements
+# sql = "SELECT * FROM students LIMIT 5"
+
+# Limiting the quaries up to first 5 elements skipping first two
+sql = "SELECT * FROM students LIMIT 5 OFFSET 2"
+
+mycursor.execute(sql)
 
 myresult = mycursor.fetchall()
 
