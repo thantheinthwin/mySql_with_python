@@ -24,7 +24,7 @@ mycursor = mydb.cursor()
 #     print(tb)
 
 # sqlFormula = "INSERT INTO Students (name, age) VALUES (%s, %s)"
-#
+
 # student = [("Rachel", 22),
 #             ("Michael", 20),
 #             ("Navi", 23),
@@ -32,7 +32,7 @@ mycursor = mydb.cursor()
 # # passing many parameters
 # mycursor.executemany(sqlFormula, student)
 
-# student1 = ("Steve", 21)
+# student1 = ("Mike", 15)
 # passing only one parameter
 # mycursor.execute(sqlFormula, student1)
 
@@ -88,11 +88,24 @@ mycursor = mydb.cursor()
 # sql = "SELECT * FROM students ORDER BY name"
 
 # Order by age decending
-sql = "SELECT * FROM students ORDER BY age DESC"
+# sql = "SELECT * FROM students ORDER BY age DESC"
+#
+# mycursor.execute(sql)
+#
+# myresult = mycursor.fetchall()
+#
+# for result in myresult:
+#     print(result)
+
+# Delete a quary with name 'Rachel'
+# sql = "DELETE FROM students WHERE name = 'Rachel'"
+
+# Delete a quary with 2 conditions
+# sql = "DELETE FROM students WHERE name = 'Mike' AND age = 15"
+
+# Deleting a table
+sql = "DROP TABLE IF EXISTS students"
 
 mycursor.execute(sql)
 
-myresult = mycursor.fetchall()
-
-for result in myresult:
-    print(result)
+mydb.commit()
