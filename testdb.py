@@ -75,7 +75,20 @@ mycursor = mydb.cursor()
 # sql = "SELECT * FROM students LIMIT 5"
 
 # Limiting the quaries up to first 5 elements skipping first two
-sql = "SELECT * FROM students LIMIT 5 OFFSET 2"
+# sql = "SELECT * FROM students LIMIT 5 OFFSET 2"
+#
+# mycursor.execute(sql)
+#
+# myresult = mycursor.fetchall()
+#
+# for result in myresult:
+#     print(result)
+
+# Order by name
+# sql = "SELECT * FROM students ORDER BY name"
+
+# Order by age decending
+sql = "SELECT * FROM students ORDER BY age DESC"
 
 mycursor.execute(sql)
 
